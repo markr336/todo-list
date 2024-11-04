@@ -3,35 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Todoist</title>
     <script src="https://kit.fontawesome.com/f544afeba4.js" crossorigin="anonymous"></script>
 <script defer src="main.js"></script></head>
 <body>
-
-    <header>
-        <button id="showDialog">+</button>
-        <p>Do It</p>
-    </header>
-
     <!-- Dialong to add a new task -->
     <dialog id="dialog">
         <form id="form" method="dialog">
-            <div class="pageSplit">
+            <div class="formHeader">
                 <p class="dialogTitle">New Task</p>
             </div>
             <label for="title"></label>
             <input type="text" id="title" placeholder="Task">
             <label for="date"></label>
             <input type="date" id="date">
-            <label for="time">Is there a time?</label>
-            <input type="checkbox" name="time" id="toggleTime">
+            <div class="timeCheckbox">
+                <label for="time">Is there a time?</label>
+                <input type="checkbox" name="time" id="toggleTime">
+            </div>
             <label for="project"></label>
             <select id="project">
                 <option value="General Tasks">General Task</option>
             </select>
             <label for="notes"></label>
             <textarea name="" id="notes" placeholder="notes"></textarea>
-            <legend>Priority</legend>
+            <legend class="priorityLegend">Priority</legend>
             <div class="priorityButtons">
                 <div>
                   <input id='low' name='LowMediumOrHigh' type='radio' value='low'/>
@@ -56,7 +52,7 @@
     <!-- Dialog to add new project -->
     <dialog id="projectDialog">
         <form id="projectForm" method="dialog">
-            <div class="pageSplit">
+            <div class="formHeader">
                 <p class="dialogTitle">Create Project</p>
             </div>
             <div>
@@ -72,19 +68,31 @@
 
     <!-- Container that will contain the main elements such as sidebar & table -->
     <div class="container">
+        <div class="header">
+            <p class="headerTitle">The Todoist</p>
+        </div>
         <div class="sidebar">
-            <ul>
-                <li id="allTasks">All Tasks</li>
-                <li id="tasksToday">Today</li>
-                <li id="tasksIn7Days">Next 7 Days</li>
-                <li id="highPriorityTasks">High Priority</li>
-                <li id="completedTasks">Completed</li>
+            <ul id="tasksFilter">
+                <li id="newTask">Tasks 
+                    <i class="fa-solid fa-circle-plus" id="showDialog">
+                        <span class="tooltiptext">Create New Task</span>
+                    </i>
+                </li>
+                <li id="allTasks"><i class="fa-solid fa-calendar"></i> All Tasks</li>
+                <li id="tasksToday"><i class="fa-solid fa-calendar-day"></i> Today</li>
+                <li id="tasksIn7Days"><i class="fa-solid fa-calendar-week"></i> Next 7 Days</li>
+                <li id="highPriorityTasks"><i class="fa-solid fa-circle-exclamation"></i> High Priority</li>
+                <li id="completedTasks"><i class="fa-regular fa-calendar-check"></i> Completed</li>
             </ul>
             <ul>
-                <li id="generalTasks">General Tasks</li>
+                <li id="generalTasks"><i class="fa-solid fa-list-check"></i> General Tasks</li>
             </ul>
             <ul id="projectsList">
-                Projects <i class="fa-solid fa-circle-plus" id="addProject"></i>
+                <li id="newProject">Projects 
+                    <i class="fa-solid fa-circle-plus" id="addProject">
+                        <span class="tooltiptext">Create New Project</span>
+                    </i>
+                </li>
             </ul>
         </div>
         <!-- Where tasks will be appended -->
