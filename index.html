@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/f544afeba4.js" crossorigin="anonymous"></script>
+<script defer src="main.js"></script></head>
+<body>
+
+    <header>
+        <button id="showDialog">+</button>
+        <p>Do It</p>
+    </header>
+
+    <!-- Dialong to add a new task -->
+    <dialog id="dialog">
+        <form id="form" method="dialog">
+            <div class="pageSplit">
+                <p class="dialogTitle">New Task</p>
+            </div>
+            <label for="title"></label>
+            <input type="text" id="title" placeholder="Task">
+            <label for="date"></label>
+            <input type="date" id="date">
+            <label for="time">Is there a time?</label>
+            <input type="checkbox" name="time" id="toggleTime">
+            <label for="project"></label>
+            <select id="project">
+                <option value="General Tasks">General Task</option>
+            </select>
+            <label for="notes"></label>
+            <textarea name="" id="notes" placeholder="notes"></textarea>
+            <legend>Priority</legend>
+            <div class="priorityButtons">
+                <div>
+                  <input id='low' name='LowMediumOrHigh' type='radio' value='low'/>
+                  <label for='low' class='radio-label'>Low</label>
+                </div>
+                <div>
+                  <input id='medium' name='LowMediumOrHigh' type='radio' value='medium'/>
+                  <label for='medium' class='radio-label'>Medium</label>
+                </div>
+                <div>
+                    <input id='high' name='LowMediumOrHigh' type='radio' value='high'/>
+                    <label for='high' class='radio-label'>High</label>
+                </div>
+            </div>
+            <div class="buttons">
+                <button type="submit" id="add-edit-Task">Add Task</button>
+                <button type="submit" id="closeDialog" value="Close">Close</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- Dialog to add new project -->
+    <dialog id="projectDialog">
+        <form id="projectForm" method="dialog">
+            <div class="pageSplit">
+                <p class="dialogTitle">Create Project</p>
+            </div>
+            <div>
+                <label for="projectTitle"></label>
+                <input type="text" id="projectTitle" placeholder="Project">
+            </div>
+            <div class="buttons">
+                <button type="submit" id="add-edit-project">Create Project</button>
+                <button type="submit" id="closeProjectDialog" value="Close">Close</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- Container that will contain the main elements such as sidebar & table -->
+    <div class="container">
+        <div class="sidebar">
+            <ul>
+                <li id="allTasks">All Tasks</li>
+                <li id="tasksToday">Today</li>
+                <li id="tasksIn7Days">Next 7 Days</li>
+                <li id="highPriorityTasks">High Priority</li>
+                <li id="completedTasks">Completed</li>
+            </ul>
+            <ul>
+                <li id="generalTasks">General Tasks</li>
+            </ul>
+            <ul id="projectsList">
+                Projects <i class="fa-solid fa-circle-plus" id="addProject"></i>
+            </ul>
+        </div>
+        <!-- Where tasks will be appended -->
+        <div class="tableArea"></div>
+    </div>
+
+</body>
+</html>
